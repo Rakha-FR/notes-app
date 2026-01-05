@@ -15,7 +15,7 @@ def create_app():
     def home():
         return jsonify({
             'message': 'Todo List REST API (Modular)',
-            'version': '2.0',
+            'version': '1.0',
             'endpoints': {
                 'GET /api/tasks': 'Mendapatkan semua tasks',
                 'GET /api/tasks/<id>': 'Mendapatkan task berdasarkan ID',

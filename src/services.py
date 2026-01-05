@@ -18,7 +18,7 @@ class TaskService:
         tasks = self.get_all_tasks()
         return next((task for task in tasks if task.id == task_id), None)
     
-    def create_task(self, title, description=''):
+    def create_task(self, title, content=''):
         """Membuat task baru"""
         tasks_data = self.storage.read()
         new_id = self._get_next_id(tasks_data)
@@ -26,7 +26,7 @@ class TaskService:
         new_task = Task(
             id=new_id,
             title=title,
-            description=description
+            content=content
         )
         
         tasks_data.append(new_task.to_dict())
@@ -34,7 +34,7 @@ class TaskService:
         
         return new_task
     
-    def update_task(self, task_id, title=None, description=None):
+    def update_task(self, task_id, title=None, content=None):
         """Update task berdasarkan ID"""
         tasks_data = self.storage.read()
         task_index = next(
@@ -47,8 +47,8 @@ class TaskService:
         
         if title is not None:
             tasks_data[task_index]['title'] = title
-        if description is not None:
-            tasks_data[task_index]['description'] = description
+        if content is not None:
+            tasks_data[task_index]['content'] = content
         
         tasks_data[task_index]['timestamp'] = datetime.now().isoformat()
         

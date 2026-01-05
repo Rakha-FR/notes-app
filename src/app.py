@@ -19,7 +19,7 @@ def create_app():
             'endpoints': {
                 'GET /api/tasks': 'Mendapatkan semua tasks',
                 'GET /api/tasks/<id>': 'Mendapatkan task berdasarkan ID',
-                'POST /api/tasks': 'Membuat task baru (body: title, description)',
+                'POST /api/tasks': 'Membuat task baru (body: title, content)',
                 'PUT /api/tasks/<id>': 'Update task berdasarkan ID',
                 'DELETE /api/tasks/<id>': 'Menghapus task berdasarkan ID'
             }

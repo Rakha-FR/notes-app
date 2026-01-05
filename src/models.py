@@ -3,10 +3,10 @@ from datetime import datetime
 class Task:
     """Model untuk Task"""
     
-    def __init__(self, id, title, description='', timestamp=None):
+    def __init__(self, id, title, content='', timestamp=None):
         self.id = id
         self.title = title
-        self.description = description
+        self.content = content
         self.timestamp = timestamp or datetime.now().isoformat()
     
     def to_dict(self):
@@ -14,7 +14,7 @@ class Task:
         return {
             'id': self.id,
             'title': self.title,
-            'description': self.description,
+            'content': self.content,
             'timestamp': self.timestamp
         }
     
@@ -24,6 +24,6 @@ class Task:
         return Task(
             id=data['id'],
             title=data['title'],
-            description=data.get('description', ''),
+            content=data.get('content', ''),
             timestamp=data.get('timestamp')
         )

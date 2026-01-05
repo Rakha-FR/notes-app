@@ -1,6 +1,7 @@
 import json
 from threading import Lock
 from config import Config
+import os
 
 class StorageManager:
     """Manager untuk operasi baca/tulis file JSON"""
@@ -12,6 +13,12 @@ class StorageManager:
     
     def _initialize_file(self):
         """Inisialisasi file jika belum ada"""
+        # Pastikan direktori parent ada
+        data_dir = os.path.dirname(self.data_file)
+        if data_dir and not os.path.exists(data_dir):
+            os.makedirs(data_dir, exist_ok=True)
+        
+        # Buat file jika tidak ada
         if not os.path.exists(self.data_file):
             self.write([])
     

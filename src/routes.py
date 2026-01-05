@@ -43,7 +43,7 @@ def create_task():
     
     task = task_service.create_task(
         title=data['title'],
-        content=data.get('content', '')
+        description=data.get('description', '')
     )
     
     return jsonify({
@@ -60,7 +60,7 @@ def update_task(task_id):
     task = task_service.update_task(
         task_id=task_id,
         title=data.get('title'),
-        content=data.get('content')
+        description=data.get('description')
     )
     
     if task:

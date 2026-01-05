@@ -1,12 +1,3 @@
-# LAPORAN APLIKASI TODO LIST REST API
-
-**Nama Aplikasi:** Todo List REST API (Modular)  
-**Versi:** 2.0  
-**Framework:** Flask (Python)  
-**Tanggal:** Januari 2025
-
----
-
 ## BAB 1: PENDAHULUAN
 
 ### 1.1 Latar Belakang Masalah

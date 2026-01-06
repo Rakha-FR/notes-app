@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from routes import api_bp
 from config import Config
 
@@ -6,6 +7,9 @@ def create_app():
     """Factory function untuk membuat Flask app"""
     app = Flask(__name__)
     app.config.from_object(Config)
+    
+    # Enable CORS
+    CORS(app, resources={r"/api/*": {"origins": "*"}})
     
     # Register blueprints
     app.register_blueprint(api_bp)
